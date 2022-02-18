@@ -1,4 +1,5 @@
-﻿using Microsoft.OpenApi.Models;
+﻿using Basket.Repositories;
+using Microsoft.OpenApi.Models;
 
 namespace Basket
 {
@@ -21,10 +22,14 @@ namespace Basket
                 options.Configuration = Configuration.GetValue<string>("CacheSettings:ConnectionString");
             });
 
+            // General Configuration
+            services.AddScoped<IBasketRepository, BasketRepository>();
+            //services.AddAutoMapper(typeof(Startup));
+
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Catalog", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Basket", Version = "v1" });
             });
 
 

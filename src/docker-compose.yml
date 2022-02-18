@@ -1,0 +1,14 @@
+version: '3.4'
+
+services:
+  catalogdatastore:
+    image: mongo
+
+  catalog:
+    image: ${DOCKER_REGISTRY-}catalog
+    build:
+      context: .
+      dockerfile: services/Catalog/Catalog/Dockerfile
+
+volumes:
+  mongo_data:

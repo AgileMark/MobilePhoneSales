@@ -1,0 +1,20 @@
+version: '3.4'
+
+services:
+  catalogdatastore:
+    container_name: catalogdatastore
+    restart: always
+    ports:
+      -  "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+
+  catalog:
+    container_name: catalog
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - "DatabaseSettings:ConnectionString:mongodb://catalogdatastore:27017"
+    depends_on:
+      - catalogdatastore
+    ports:
+      - "8000:80"

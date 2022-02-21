@@ -1,20 +1,37 @@
 version: '3.4'
 
 services:
-  catalogdatastore:
-    container_name: catalogdatastore
+  catalogdb:
+    container_name: catalogdb
     restart: always
     ports:
       -  "27017:27017"
     volumes:
       - mongo_data:/data/db
 
+  basketdb:
+    container_name: basketdb
+    restart: always
+    ports:
+        - "6379:6379"
+
   catalog:
     container_name: catalog
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
-      - "DatabaseSettings:ConnectionString:mongodb://catalogdatastore:27017"
+      - "DatabaseSettings:ConnectionString:mongodb://catalogdb:27017"
     depends_on:
       - catalogdatastore
     ports:
       - "8000:80"
+
+  basket:
+    container_name: basket
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - "CacheSettings:ConnectionString=basketdb:6379"
+    depends_on:
+      - basketdb
+    ports:
+      - "8001:80"
+

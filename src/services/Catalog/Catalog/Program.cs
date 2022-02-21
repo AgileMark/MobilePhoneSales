@@ -1,4 +1,3 @@
-
 namespace Catalog
 {
     public class Program

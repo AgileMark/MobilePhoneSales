@@ -46,51 +46,55 @@ namespace Discount.UnitTests.Controllers
             //Assert.That(typeof(actionResult.Result), Is.EqualTo(typeof(OkObjectResult)));
             Assert.That(actionResult.Value, Is.EqualTo(productName));
         }
-        /*
         [Test]
         public async Task CreateDiscount_StateUnderTest_ExpectedBehavior()
         {
             // Arrange
             var discountController = this.CreateDiscountController();
-            Coupon coupon = null;
+            Coupon coupon = new Coupon() { Amount = 550, Description = "test new product", Id = 0, ProductName = "Huawei Plus" };
 
             // Act
-            var result = await discountController.CreateDiscount(
-                coupon);
+            var result = await discountController.CreateDiscount(coupon);
 
             // Assert
             Assert.Fail();
         }
 
+        /*
         [Test]
         public async Task UpdateBasket_StateUnderTest_ExpectedBehavior()
         {
             // Arrange
             var discountController = this.CreateDiscountController();
-            Coupon coupon = null;
-
+            Coupon coupon = {  
+     "id": 3,
+      "productName": "Huawei Plus",
+      "description": "test update",
+      "amount": 200
+    };
+    
             // Act
             var result = await discountController.UpdateBasket(
                 coupon);
-
+    
             // Assert
             Assert.Fail();
         }
-
+    
         [Test]
         public async Task DeleteDiscount_StateUnderTest_ExpectedBehavior()
         {
             // Arrange
             var discountController = this.CreateDiscountController();
-            string productName = null;
-
+            string productName = "Huawei Plus";
+    
             // Act
             var result = await discountController.DeleteDiscount(
                 productName);
-
+    
             // Assert
             Assert.Fail();
         }
         */
-    }
+}
 }

@@ -68,7 +68,6 @@ services:
     ports:
       - "8001:80"
 
-
   discount:
     container_name: discount
     environment:

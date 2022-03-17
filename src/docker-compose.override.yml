@@ -54,7 +54,7 @@ services:
       - ASPNETCORE_ENVIRONMENT=Development
       - "DatabaseSettings:ConnectionString:mongodb://catalogdb:27017"
     depends_on:
-      - catalogdatastore
+      - catalogdb
     ports:
       - "8000:80"
 

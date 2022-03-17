@@ -38,26 +38,26 @@ namespace Discount.UnitTests.Controllers
 
             // Act
             ActionResult<Coupon> actionResult = await sut.GetDiscount(productName);
-            //Task<ActionResult<Coupon>> actionResult = await sut.GetDiscount(productName);
-            //var result = await sut.GetDiscount(productName);
 
             // Assert
-            //Assert.That(actionResult.Result, Is.EqualTo(StatusCodes.Status200OK));
-            //Assert.That(typeof(actionResult.Result), Is.EqualTo(typeof(OkObjectResult)));
+            Assert.That(actionResult.Result.GetType(), Is.EqualTo(typeof(OkObjectResult)));
             Assert.That(actionResult.Value, Is.EqualTo(productName));
         }
+
         [Test]
-        public async Task CreateDiscount_StateUnderTest_ExpectedBehavior()
+        public async Task CreateDiscount_ForHuaweiPlus_550Discount()
         {
             // Arrange
             var discountController = this.CreateDiscountController();
             Coupon coupon = new Coupon() { Amount = 550, Description = "test new product", Id = 0, ProductName = "Huawei Plus" };
 
             // Act
-            var result = await discountController.CreateDiscount(coupon);
+            var actionResult = await discountController.CreateDiscount(coupon);
 
             // Assert
-            Assert.Fail();
+            Assert.That(actionResult.Result.GetType(), Is.EqualTo(typeof(CreatedAtRouteResult)));
+            var result = actionResult.Result as CreatedAtRouteResult;
+            Assert.IsNotNull(result);
         }
 
         /*
@@ -96,5 +96,5 @@ namespace Discount.UnitTests.Controllers
             Assert.Fail();
         }
         */
-}
+    }
 }

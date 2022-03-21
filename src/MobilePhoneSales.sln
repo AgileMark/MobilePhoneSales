@@ -45,6 +45,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shopping.Blazor.Products", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shopping.Monolith.Web", "Web\Shopping.Monolith.Web\Shopping.Monolith.Web.csproj", "{01538416-B832-483D-BBA3-2FFC715DDABF}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shopping.Blazor.SharedState", "Shopping.Blazor.SharedState", "{0972236E-810F-4ADB-B245-573E1362D904}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -122,6 +124,7 @@ Global
 		{07C26F2E-6D9F-49E4-8F83-5B79EE215607} = {C755B035-450A-40C3-931C-AC3CEC52B28C}
 		{B0022CF8-B53D-4083-95CC-F08C0D6F2527} = {65509F49-EE73-460B-AE1C-339EFEC11FD2}
 		{01538416-B832-483D-BBA3-2FFC715DDABF} = {69C80022-9F7B-47EF-B63A-13241F0E92B9}
+		{0972236E-810F-4ADB-B245-573E1362D904} = {024DF27F-2BB8-490A-9E1C-5A5C7C4CFA20}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {1FA83A12-B6B4-491E-A852-4B48565C2DF2}
